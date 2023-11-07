@@ -1,8 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [],
-    theme: {
-      extend: {},
-    },
-    plugins: [],
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'ms-purple': '#6D38E0',
+        'ms-gray': '#D2CCFF'
+      }
+    }
   }
+}
