@@ -1,10 +1,10 @@
 function createCard(movie) {
     return `
-    <article class="bg-white flex flex-col truncate  rounded-2xl w-64 h-96 p-4 gap-2">
+    <article class="card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
     <img class="rounded-md" src="${movie.image}" alt="image">
     <h3 class="font-bold text-xl">${movie.title}</h3>
     <h4 class="italic">${movie.tagline}</h4>
-    <p>${movie.overview}</p>
+    <p class="line-clamp-4 hover:block  ">${movie.overview}</p>
     </article>
 `
 }
@@ -18,4 +18,4 @@ function addCard(movieList, container) {
     container.innerHTML += template
 }
 
- addCard(movies, cardContainer)
+addCard(movies, cardContainer)

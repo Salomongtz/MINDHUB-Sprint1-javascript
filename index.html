@@ -11,36 +11,33 @@
 </head>
 
 <body class="w-full min-h-screen flex flex-col">
-    <header class="bg-ms-purple flex justify-between items-center px-10">
-        <a href="./index.html" class="flex gap-6">
-            <img src="./assets/images/Moviestack_isotipo.png" alt="isotype" id="isotype" class="h-20 ">
-            <img src="./assets/images/Moviestack_logotipo1.png" alt="logo" id="logo" class="h-20">
+    <header class="bg-ms-purple flex flex-col md:flex-row md:justify-between items-center px-10 ">
+        <a class="flex justify-center items-center h-20 w-full md:w-96 py-2" href="./index.html">
+            <img class="h-full w-16 rounded-full bg-black object-cover object-center hidden md:flex"
+                src="./assets/images/Moviestack_isotipo.png" alt="isotype" id="isotype">
+            <img class="h-full w-3/4 object-cover object-center" src="./assets/images/Moviestack_logotipo2.png"
+                alt="logo" id="logo">
         </a>
-        <nav class="flex gap-8"><a href="./index.html">Home</a><a href="./assets/pages/movies.html">Movies</a><a
-                href="#">Favs</a></nav>
+        <nav class="flex items-center gap-6 text-white font-bold text-xl">
+            <a class="bg-black p-2" href="./index.html">Home</a>
+            <a href="./assets/pages/movies.html">Movies</a>
+            <a href="#">Favs</a>
+        </nav>
     </header>
-    <main class="bg-ms-gray flex flex-col items-center grow">
-        <div id="banner">
-            <h1>WELCOME</h1><img src="" alt="banner" id="bannerImg">
-        </div>
+    <main class="bg-ms-gray flex flex-col items-center grow gap-16 py-10 px-28 text-center">
+
+        <a class="h-96 " href="./index.html"><img class="h-full " src="./assets/images/banner.png" alt="banner" id="bannerImg"></a>
+
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta soluta alias nesciunt, fugiat quidem dolor
-            veniam. Veniam, sequi excepturi unde, sit consequuntur eius quidem omnis reiciendis voluptates voluptas
-            reprehenderit. Vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi corrupti et, odio,
-            explicabo iure rerum quam facilis sint nulla velit dicta aliquam quia ab, nobis sapiente minus molestias
-            quibusdam vitae?
-            Dolor natus, ratione dolorum totam debitis numquam nobis tempora incidunt officiis fugit assumenda voluptas,
-            facere repellat. Saepe accusantium aut minus est excepturi minima atque odit exercitationem velit alias,
-            quos debitis.
+            Welcome to the Moviestack website, where you can dive deep into the world of cinema. Discover candid,
+            well-crafted reviews, insightful analyses, and expert ratings to help you make informed choices for your
+            next cinematic experience. Whether you're a film enthusiast or simply looking for your next movie night
+            pick, we've got you covered with our comprehensive and passionate approach to movie reviews.
         </p>
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus facilis possimus temporibus ipsa eaque
-            sapiente esse. Placeat incidunt minima harum est, saepe ratione. Quam natus alias ratione, nobis
-            voluptatibus quae!
-        </p>
-        <div class="callToAction">
-            <a href="./assets/pages/movies.html" class="callToActionButton">Movies</a>
-            <a href="#" class="callToActionButton">Favs</a>
+        <div class="callToAction flex justify-around gap-16 h-80">
+            <a class="h-full" href="./assets/pages/movies.html"><img class="h-full" src="./assets/images/Movies.png"
+                    alt="Movies"></a>
+            <a class="h-full" href="#" class="callToActionButton"><img class="h-full" src="./assets/images/Favs.png" alt="Favs"></a>
         </div>
     </main>
     <footer class="bg-ms-purple text-center">
