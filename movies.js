@@ -1,6 +1,6 @@
 function createCard(movie) {
     return `
-    <article class="card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
+    <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
     <img class="rounded-md" src="${movie.image}" alt="image">
     <h3 class="font-bold text-xl">${movie.title}</h3>
     <h4 class="italic">${movie.tagline}</h4>
