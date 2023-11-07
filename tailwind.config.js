@@ -7,4 +7,5 @@ tailwind.config = {
       }
     }
   }
-}
+};
+export const plugins = [];
