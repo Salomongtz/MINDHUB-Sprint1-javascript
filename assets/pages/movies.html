@@ -9,21 +9,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="w-full min-h-screen flex flex-col">
-    <header class="bg-slate-800 text-white flex justify-between">
+<body class="w-full bg-slate-600 min-h-screen flex flex-col gap-8">
+    <header class="bg-slate-800 text-white flex justify-between items-center px-10 h-14">
         <a href="./index.html" class="flex gap-6">
             <img src="" alt="logo" id="logo">
             <h2>
                 Moviestack
             </h2>
         </a>
-        <nav><a href="./index.html">Home</a><a href="./assets/pages/movies.html">Movies</a><a href="#">Favs</a></nav>
+        <nav class="flex gap-8"><a href="./index.html">Home</a><a href="./assets/pages/movies.html">Movies</a><a href="#">Favs</a></nav>
     </header>
     <main class="bg-slate-600 flex flex-col items-center grow gap-8">
-        <h1 class="mt-8">MOVIES</h1>
+        <h1 class="font-bold text-6xl">MOVIES</h1>
         <div class="flex flex-wrap gap-8 justify-center" id="cardContainer"></div>
     </main>
-    <footer class="bg-slate-800 text-white text-center mt-8">
+    <footer class="bg-slate-800 text-white text-center">
         <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
     </footer>
     <script src="../../data.js"></script>
