@@ -19,3 +19,13 @@ function addCard(movieList, container) {
 }
 
 addCard(movies, cardContainer)
+
+//Sprint 2
+
+let genres=new Set()
+
+for (const movie of movies) {
+    genres.add(...movie.genres)
+}
+
+console.log(genres)
