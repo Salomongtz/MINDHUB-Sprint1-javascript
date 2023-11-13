@@ -10,7 +10,8 @@ for (const movie of movies) {
 console.log(genres)
 
 genreSelector.addEventListener("input", (e) => {
-    console.log(e.target.value);
+    const genreFilter = filterByGenre(movies, e.target.value)
+    printTemplate(nameFilter, cardContainer, createCardTemplate)
 })
 
 printTemplate(movies, cardContainer, createCardTemplate)
@@ -19,18 +20,14 @@ genreSelector.value = "Filter by genre"
 console.log(genreSelector.value);
 
 searchBar.addEventListener("input", (e) => {
-    // const nameFilter = filterByName(movies, e.target.value)
-    const nameFilter = filterBy(movies, "title", e.target.value)
+    const nameFilter = filterByName(movies, e.target.value)
     printTemplate(nameFilter, cardContainer, createCardTemplate)
 })
 
-// function filterByName(list, name) {
-//     return list.filter(item => item.title.toLowerCase().includes(name.toLowerCase()))
-// }
-
-function filterBy(list, property, value) {
-    return list.filter(item => item[property].toLowerCase().includes(value.toLowerCase()))
+function filterByName(list, name) {
+    return list.filter(item => item.title.toLowerCase().includes(name.toLowerCase()))
 }
+
 function createCardTemplate(movie) {
     return `
     <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
