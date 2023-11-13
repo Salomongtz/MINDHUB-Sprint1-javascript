@@ -28,14 +28,42 @@
 
     <main class="bg-ms-gray flex flex-col items-center grow gap-8">
         <h1 class="font-bold text-6xl">MOVIES</h1>
-        <div class="flex flex-col flex-wrap gap-8 justify-center items-center" id="cardContainer"></div>
+        <div class="flex flex-col flex-wrap gap-8 justify-center items-center w-full h-screen" id="cardContainer">
+            <div class="border border-ms-purple shadow rounded-md p-4 h-full w-full mx-auto">
+                <div class="animate-pulse flex space-x-4">
+                    <div class="rounded-full bg-ms-purple h-52 w-52"></div>
+                    <div class="flex-1 space-y-6 py-1">
+                        <div class="h-10 bg-ms-purple rounded"></div>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="h-10 bg-ms-purple rounded col-span-2"></div>
+                                <div class="h-10 bg-ms-purple rounded col-span-1"></div>
+                            </div>
+                            <div class="h-10 bg-ms-purple rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-pulse flex space-x-4">
+                    <div class="flex-1 space-y-6 py-1">
+                        <div class="h-10 bg-ms-purple rounded"></div>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="h-10 bg-ms-purple rounded col-span-2"></div>
+                                <div class="h-10 bg-ms-purple rounded col-span-1"></div>
+                            </div>
+                            <div class="h-10 bg-ms-purple rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-ms-purple text-white text-center">
         <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
     </footer>
 
-    <script  src="../../data.js"></script>
+    <script src="../../data.js"></script>
     <script type="module" src="../../details.js"></script>
 </body>
 
