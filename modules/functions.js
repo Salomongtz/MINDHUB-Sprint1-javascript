@@ -34,7 +34,3 @@ export function createSelectorTemplate(genre) {
 
     return `<option value="${genre}">${genre}</option>`
 }
-
-export default {
-    filterByName, filterByGenre, createCardTemplate, printTemplate, createSelectorTemplate
-}
