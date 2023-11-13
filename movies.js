@@ -1,15 +1,14 @@
 import { filterByName, filterByGenre, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
 
 const cardContainer = document.getElementById("cardContainer")
-
-const genres = new Set()
 const searchBar = document.getElementById("searchBar")
 const genreSelector = document.getElementById("genreSelector")
 
-for (const movie of movies) {
-    genres.add(...movie.genres)
-}
-console.log(genres)
+const unfilteredGenres = movies.map(movie => movie.genres).flat()
+const genresSet = [...new Set(unfilteredGenres)]
+
+const genres = Array.from(genresSet)
+genres.unshift("All")
 
 printTemplate(movies, cardContainer, createCardTemplate)
 printTemplate(genres, genreSelector, createSelectorTemplate)
