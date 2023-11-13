@@ -2,11 +2,9 @@ export function filterByName(list, name) {
     return list.filter(item => item.title.toLowerCase().includes(name.toLowerCase()))
 }
 export function filterByGenre(list, genre) {
-
     return list.filter(item => item.genres.includes(genre))
 }
 export function createCardTemplate(movie) {
-
     return `
     <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
     <img class="rounded-md" src="${movie.image}" alt="image">
@@ -17,7 +15,6 @@ export function createCardTemplate(movie) {
 `
 }
 export function printTemplate(list, container, templateFn) {
-
     let template = ""
 
     list.forEach(item => {
@@ -31,6 +28,5 @@ export function printTemplate(list, container, templateFn) {
     }
 }
 export function createSelectorTemplate(genre) {
-
     return `<option value="${genre}">${genre}</option>`
 }
