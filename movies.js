@@ -1,3 +1,36 @@
+const cardContainer = document.getElementById("cardContainer")
+
+const genres = new Set()
+const searchBar = document.getElementById("searchBar")
+const genreSelector = document.getElementById("genreSelector")
+
+for (const movie of movies) {
+    genres.add(...movie.genres)
+}
+console.log(genres)
+
+genreSelector.addEventListener("input", (e) => {
+    console.log(e.target.value);
+})
+
+printTemplate(movies, cardContainer, createCardTemplate)
+printTemplate(genres, genreSelector, createSelectorTemplate)
+genreSelector.value = "Filter by genre"
+console.log(genreSelector.value);
+
+searchBar.addEventListener("input", (e) => {
+    // const nameFilter = filterByName(movies, e.target.value)
+    const nameFilter = filterBy(movies, "title", e.target.value)
+    printTemplate(nameFilter, cardContainer, createCardTemplate)
+})
+
+// function filterByName(list, name) {
+//     return list.filter(item => item.title.toLowerCase().includes(name.toLowerCase()))
+// }
+
+function filterBy(list, property, value) {
+    return list.filter(item => item[property].toLowerCase().includes(value.toLowerCase()))
+}
 function createCardTemplate(movie) {
     return `
     <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
@@ -9,57 +42,20 @@ function createCardTemplate(movie) {
 `
 }
 
-const cardContainer = document.getElementById("cardContainer")
-
-// function addCard(movieList, container) {
-//     let template = ""
-//     for (const movie of movieList) {
-//         template += createCardTemplate(movie)
-//     }
-//     container.innerHTML += template
-// }
-
-// addCard(movies, cardContainer)
-
-//Sprint 2
-const genres = new Set()
-const searchBar = document.getElementById("searchBar")
-const genreSelector = document.getElementById("genreSelector")
-
-//Obtain movie genres
-for (const movie of movies) {
-    genres.add(...movie.genres)
-}
-console.log(genres)
-
-//Create selector with genres
-function createSelectorTemplate(genre) {
-    return `<option value="${genre}">${genre}</option> `
-}
-
-// function appendSelectorItems(genres, container) {
-//     let template = ""
-//     genres.forEach(genre => {
-//         template += createSelectorTemplate(genre)
-//     })
-//     container.innerHTML += template
-// }
-
-function appendTemplate(list, container, templateFn) {
+function printTemplate(list, container, templateFn) {
     let template = ""
+
     list.forEach(item => {
         template += templateFn(item)
     })
-    container.innerHTML += template
+
+    if (template) {
+        container.innerHTML = template
+    } else {
+        container.innerHTML = `<h2>Couldn't find that movie.</h2>`
+    }
 }
 
-appendTemplate(genres, genreSelector, createSelectorTemplate)
-appendTemplate(movies, cardContainer, createCardTemplate)
-
-// appendSelectorItems(genres, genreSelector)
-
-//Create searchbar
-searchBar.addEventListener("input", (event) => {
-    console.log("Entró")
-})
-
+function createSelectorTemplate(genre) {
+    return `<option value="${genre}">${genre}</option> `
+}
