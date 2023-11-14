@@ -2,11 +2,11 @@ export function filterByName(list, name) {
     return list.filter(item => item.title.toLowerCase().includes(name.toLowerCase()))
 }
 export function filterByGenre(list, genre) {
-    return genre=="All"?list:list.filter(item => item.genres.includes(genre))
+    return genre == "All" ? list : list.filter(item => item.genres.includes(genre))
 }
 export function createCardTemplate(movie) {
     return `
-    <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 gap-2">
+    <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 justify-between">
     <img class="rounded-md" src="${movie.image}" alt="image">
     <h3 class="font-bold text-xl">${movie.title}</h3>
     <h4 class="italic">${movie.tagline}</h4>
@@ -32,48 +32,59 @@ export function createSelectorTemplate(genre) {
     return `<option value="${genre}">${genre}</option>`
 }
 export function createMovieDetail(movie) {
-    return `<div class="flex flex-wrap">
-    <img src="${movie.image}" alt="${movie.title}">
+    return `<div class="flex flex-wrap p-8 bg-black text-white border-double border-8 border-ms-purple rounded-xl">
+    <img class="rounded-md" src="${movie.image}" alt="${movie.title}">
     <article class=" flex flex-col w-64 p-4 gap-2">
         <h3 class="font-bold text-xl">${movie.title}</h3>
         <h4 class="italic">${movie.tagline}</h4>
         <p>${movie.genres}</p>
         <p class="">${movie.overview}</p>
     </article>
-    </div>
-    <div class="flex gap-8">
-                    <table>
-                        <tr>
-                            <th>Original Language</th>
-                            <td>${movie.original_language}</td>
-                        </tr>
-                        <tr>
-                            <th>Release Date</th>
-                            <td>${movie.release_date}</td>
-                        </tr>
-                        <tr>
-                            <th>Runtime</th>
-                            <td>${movie.runtime}</td>
-                        </tr>
-                        <tr>
-                            <th>Status</th>
-                            <td>${movie.status}</td>
-                        </tr>
-                    </table>
-    
-                    <table>
-                        <tr>
-                            <th>Vote Average</th>
-                            <td>${movie.vote_average}</td>
-                        </tr>
-                        <tr>
-                            <th>Budget</th>
-                            <td>${movie.budget}</td>
-                        </tr>
-                        <tr>
-                            <th>Revenue</th>
-                            <td>${movie.revenue}</td>
-                        </tr>
-                    </table>
-                </div>`
+</div>
+<div class="flex gap-8 border-double border-8 border-black bg-ms-purple rounded-xl p-8">
+
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Original
+                Language</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.original_language}
+            </td>
+        </tr>
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Release Date</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.release_date}</td>
+        </tr>
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Runtime</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.runtime}</td>
+        </tr>
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Status</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.status}</td>
+        </tr>
+    </table>
+
+
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">Vote
+                Average</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.vote_average}</td>
+        </tr>
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Budget</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.budget}</td>
+        </tr>
+        <tr class="flex justify-between">
+            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+                Revenue</th>
+            <td class="bg-white w-1/2 p-2 border-b ">${movie.revenue}</td>
+        </tr>
+    </table>
+</div>`
 }
