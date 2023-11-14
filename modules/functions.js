@@ -41,47 +41,47 @@ export function createMovieDetail(movie) {
         <p class="">${movie.overview}</p>
     </article>
 </div>
-<div class="flex gap-8 border-double border-8 border-black bg-ms-purple rounded-xl p-8">
+<div class="flex gap-8 border-double border-8 border-ms-purple bg-black rounded-xl p-8">
 
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <table class="w-full text-sm text-left rtl:text-right text-black">
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Original
                 Language</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.original_language}
             </td>
         </tr>
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Release Date</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.release_date}</td>
         </tr>
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Runtime</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.runtime}</td>
         </tr>
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Status</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.status}</td>
         </tr>
     </table>
 
 
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <table class="w-full text-sm text-left rtl:text-right text-black">
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">Vote
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">Vote
                 Average</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.vote_average}</td>
         </tr>
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Budget</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.budget}</td>
         </tr>
         <tr class="flex justify-between">
-            <th class="text-xs text-black uppercase bg-ms-gray w-1/2 p-2">
+            <th class="text-xs text-white uppercase bg-ms-purple w-1/2 p-2">
                 Revenue</th>
             <td class="bg-white w-1/2 p-2 border-b ">${movie.revenue}</td>
         </tr>
