@@ -11,17 +11,17 @@ const options = {
 }
 
 let movies
+let favs = []
+
 fetch("https://moviestack.onrender.com/api/movies", options)
     .then(response => response.json())
     .then(data => {
         movies = data.movies
         const unfilteredGenres = movies.map(movie => movie.genres).flat()
         const genresSet = [...new Set(unfilteredGenres)]
-
         const genres = Array.from(genresSet)
         genres.unshift("All")
-        console.log(genres)
-        console.log(data);
+
         printTemplate(movies, cardContainer, createCardTemplate)
         printTemplate(genres, genreSelector, createSelectorTemplate)
     })
@@ -37,4 +37,15 @@ searchBar.addEventListener("input", (e) => {
     const nameFilter = filterByName(movies, e.target.value)
     const genreFilter = filterByGenre(nameFilter, genreSelector.value)
     printTemplate(genreFilter, cardContainer, createCardTemplate)
+})
+
+cardContainer.addEventListener("click", e => {
+    const action = e.target.dataset.action
+    const id = e.target.dataset.id
+    if (action == "fav") {
+        if (!favs.includes(id)) {
+            favs.push(id)
+            localStorage.setItem("Favs", JSON.stringify(favs))
+        }
+    }
 })
