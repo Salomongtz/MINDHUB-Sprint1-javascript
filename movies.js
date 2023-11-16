@@ -4,14 +4,28 @@ const cardContainer = document.getElementById("cardContainer")
 const searchBar = document.getElementById("searchBar")
 const genreSelector = document.getElementById("genreSelector")
 
-const unfilteredGenres = movies.map(movie => movie.genres).flat()
-const genresSet = [...new Set(unfilteredGenres)]
+const options = {
+    headers: {
+        "x-api-key": "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd"
+    }
+}
 
-const genres = Array.from(genresSet)
-genres.unshift("All")
+let movies
+fetch("https://moviestack.onrender.com/api/movies", options)
+    .then(response => response.json())
+    .then(data => {
+        movies = data.movies
+        const unfilteredGenres = movies.map(movie => movie.genres).flat()
+        const genresSet = [...new Set(unfilteredGenres)]
 
-printTemplate(movies, cardContainer, createCardTemplate)
-printTemplate(genres, genreSelector, createSelectorTemplate)
+        const genres = Array.from(genresSet)
+        genres.unshift("All")
+        console.log(genres)
+        console.log(data);
+        printTemplate(movies, cardContainer, createCardTemplate)
+        printTemplate(genres, genreSelector, createSelectorTemplate)
+    })
+    .catch(e => console.error(e))
 
 genreSelector.addEventListener("input", (e) => {
     const genreFilter = filterByGenre(movies, e.target.value)

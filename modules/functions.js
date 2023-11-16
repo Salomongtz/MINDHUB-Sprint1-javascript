@@ -7,7 +7,7 @@ export function filterByGenre(list, genre) {
 export function createCardTemplate(movie) {
     return `
     <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 justify-between">
-    <img class="rounded-md" src="${movie.image}" alt="image">
+    <img class="rounded-md" src="https://moviestack.onrender.com/static/${movie.image}" alt="image">
     <h3 class="font-bold text-xl">${movie.title}</h3>
     <h4 class="italic">${movie.tagline}</h4>
     <a class="p-2 bg-black text-white font-bold" href="./details.html?id=${movie.id}">Details</a>
@@ -33,7 +33,7 @@ export function createSelectorTemplate(genre) {
 }
 export function createMovieDetail(movie) {
     return `<div class="flex flex-wrap p-8 bg-black text-white border-double border-8 border-ms-purple rounded-xl">
-    <img class="rounded-md" src="${movie.image}" alt="${movie.title}">
+    <img class="rounded-md" src="https://moviestack.onrender.com/static/${movie.image}" alt="${movie.title}">
     <article class=" flex flex-col w-64 p-4 gap-2">
         <h3 class="font-bold text-xl">${movie.title}</h3>
         <h4 class="italic">${movie.tagline}</h4>
