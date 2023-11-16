@@ -2,6 +2,7 @@ import { createMovieDetail } from "./modules/functions.js";
 
 const container = document.getElementById("cardContainer")
 const title = document.querySelector("h1")
+const headTitle=document.querySelector("title")
 
 let movies
 const options = {
@@ -19,6 +20,7 @@ fetch("https://moviestack.onrender.com/api/movies", options)
         movies = data.movies
         const movie = movies.find(movie => movie.id == param.get("id"))
         title.textContent = movie.title
+        headTitle.textContent=movie.title
         container.innerHTML = createMovieDetail(movie)
     })
     .catch(e => console.error(e))
