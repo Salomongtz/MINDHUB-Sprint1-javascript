@@ -40,12 +40,22 @@ searchBar.addEventListener("input", (e) => {
 })
 
 cardContainer.addEventListener("click", e => {
+
     const action = e.target.dataset.action
     const id = e.target.dataset.id
+    console.log(id);
     if (action == "fav") {
         if (!favs.includes(id)) {
             favs.push(id)
+            console.log("Crear");
             localStorage.setItem("Favs", JSON.stringify(favs))
+            e.target.setAttribute("fill", "red")
+        }
+        else if (favs.includes(id)) {
+            favs.splice(favs.indexOf(id), 1)
+            console.log("Eliminar");
+            localStorage.setItem("Favs", JSON.stringify(favs))
+            e.target.setAttribute("fill", "black")
         }
     }
 })
