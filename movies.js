@@ -1,4 +1,4 @@
-import { filterByName, filterByGenre, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
+import { filter, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
 
 const cardContainer = document.getElementById("cardContainer")
 const searchBar = document.getElementById("searchBar")
@@ -13,14 +13,5 @@ genres.unshift("All")
 printTemplate(movies, cardContainer, createCardTemplate)
 printTemplate(genres, genreSelector, createSelectorTemplate)
 
-genreSelector.addEventListener("input", (e) => {
-    const genreFilter = filterByGenre(movies, e.target.value)
-    const nameFilter = filterByName(genreFilter, searchBar.value)
-    printTemplate(nameFilter, cardContainer, createCardTemplate)
-})
-
-searchBar.addEventListener("input", (e) => {
-    const nameFilter = filterByName(movies, e.target.value)
-    const genreFilter = filterByGenre(nameFilter, genreSelector.value)
-    printTemplate(genreFilter, cardContainer, createCardTemplate)
-})
+genreSelector.addEventListener("input", () => filter(genreSelector, searchBar, cardContainer))
+searchBar.addEventListener("input", () => filter(genreSelector, searchBar, cardContainer))

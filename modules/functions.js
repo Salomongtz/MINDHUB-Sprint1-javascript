@@ -4,6 +4,11 @@ export function filterByName(list, name) {
 export function filterByGenre(list, genre) {
     return genre == "All" ? list : list.filter(item => item.genres.includes(genre))
 }
+export function filter(genreSelector, searchBar, container ){
+    const genreFilter = filterByGenre(movies, genreSelector.value)
+    const nameFilter = filterByName(genreFilter, searchBar.value)
+    printTemplate(nameFilter, container, createCardTemplate)
+}
 export function createCardTemplate(movie) {
     return `
     <article class="hover:bg-ms-purple hover:h-auto h-80 text-ellipsis card bg-black text-white flex flex-col rounded-2xl w-64 p-4 justify-between">
