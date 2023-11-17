@@ -29,7 +29,6 @@ cardContainer.addEventListener("click", e => {
     if (action == "fav") {
         if (!favs.includes(id)) {
             favs.push(id)
-            console.log("Crear");
             localStorage.setItem("Favs", JSON.stringify(favs))
             e.target.setAttribute("fill", "red")
         }
@@ -37,6 +36,14 @@ cardContainer.addEventListener("click", e => {
             favs.splice(favs.indexOf(id), 1)
             localStorage.setItem("Favs", JSON.stringify(favs))
             e.target.setAttribute("fill", "black")
+            fetch("https://moviestack.onrender.com/api/movies", options)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(JSON.stringify(favs));
+                    movies = data.movies.filter(movie => favs.includes(movie.id))
+                    printTemplate(movies, cardContainer, createCardTemplate)
+                })
+                .catch(e => console.error(e))
         }
     }
 })

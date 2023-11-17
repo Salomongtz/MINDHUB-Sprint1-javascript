@@ -16,7 +16,7 @@ let favs = []
 fetch("https://moviestack.onrender.com/api/movies", options)
     .then(response => response.json())
     .then(data => {
-        movies = data.movies
+        movies = data.movies.slice(0, 50)
         const unfilteredGenres = movies.map(movie => movie.genres).flat()
         const genresSet = [...new Set(unfilteredGenres)]
         const genres = Array.from(genresSet)
@@ -44,16 +44,15 @@ cardContainer.addEventListener("click", e => {
     const action = e.target.dataset.action
     const id = e.target.dataset.id
     console.log(id);
-    if (action == "fav") {
+    if (id) {
         if (!favs.includes(id)) {
             favs.push(id)
-            console.log("Crear");
             localStorage.setItem("Favs", JSON.stringify(favs))
             e.target.setAttribute("fill", "red")
         }
         else if (favs.includes(id)) {
             favs.splice(favs.indexOf(id), 1)
-            console.log("Eliminar");
+
             localStorage.setItem("Favs", JSON.stringify(favs))
             e.target.setAttribute("fill", "black")
         }
