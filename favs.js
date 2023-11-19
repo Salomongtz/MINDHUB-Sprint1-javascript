@@ -22,11 +22,9 @@ fetch("https://moviestack.onrender.com/api/movies", options)
     .catch(e => console.error(e))
 
 cardContainer.addEventListener("click", e => {
-
-    const action = e.target.dataset.action
     const id = e.target.dataset.id
     console.log(id);
-    if (action == "fav") {
+    if (id) {
         if (!favs.includes(id)) {
             favs.push(id)
             localStorage.setItem("Favs", JSON.stringify(favs))
