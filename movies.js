@@ -52,7 +52,6 @@ cardContainer.addEventListener("click", e => {
         }
         else if (favs.includes(id)) {
             favs.splice(favs.indexOf(id), 1)
-
             localStorage.setItem("Favs", JSON.stringify(favs))
             e.target.setAttribute("fill", "black")
         }
