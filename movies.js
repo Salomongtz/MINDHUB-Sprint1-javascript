@@ -11,7 +11,7 @@ const options = {
 }
 
 let movies
-let favs = []
+let favs = JSON.parse(localStorage.getItem("Favs")) || []
 
 fetch("https://moviestack.onrender.com/api/movies", options)
     .then(response => response.json())

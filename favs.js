@@ -1,4 +1,4 @@
-import { filterByName, filterByGenre, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
+import { createCardTemplate, printTemplate } from "./modules/functions.js";
 
 const cardContainer = document.getElementById("cardContainer")
 
@@ -9,7 +9,7 @@ const options = {
 }
 
 let movies
-let favs = JSON.parse(localStorage.getItem("Favs"))
+let favs = JSON.parse(localStorage.getItem("Favs")) || []
 console.log(favs)
 
 fetch("https://moviestack.onrender.com/api/movies", options)
