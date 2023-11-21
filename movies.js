@@ -1,4 +1,4 @@
-import { filterByName, filterByGenre, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
+import { filter, createCardTemplate, printTemplate, createSelectorTemplate } from "./modules/functions.js";
 
 const cardContainer = document.getElementById("cardContainer")
 const searchBar = document.getElementById("searchBar")
@@ -27,20 +27,10 @@ fetch("https://moviestack.onrender.com/api/movies", options)
     })
     .catch(e => console.error(e))
 
-genreSelector.addEventListener("input", (e) => {
-    const genreFilter = filterByGenre(movies, e.target.value)
-    const nameFilter = filterByName(genreFilter, searchBar.value)
-    printTemplate(nameFilter, cardContainer, createCardTemplate)
-})
-
-searchBar.addEventListener("input", (e) => {
-    const nameFilter = filterByName(movies, e.target.value)
-    const genreFilter = filterByGenre(nameFilter, genreSelector.value)
-    printTemplate(genreFilter, cardContainer, createCardTemplate)
-})
+genreSelector.addEventListener("input", () => filter(genreSelector, searchBar, cardContainer, movies))
+searchBar.addEventListener("input", () => filter(genreSelector, searchBar, cardContainer, movies))
 
 cardContainer.addEventListener("click", e => {
-
     const action = e.target.dataset.action
     const id = e.target.dataset.id
     console.log(id);

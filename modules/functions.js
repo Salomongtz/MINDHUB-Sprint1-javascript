@@ -92,3 +92,9 @@ export function createMovieDetail(movie) {
     </table>
 </div>`
 }
+
+export function filter(genreSelector, searchBar, container, movies ){
+    const genreFilter = filterByGenre(movies, genreSelector.value)
+    const nameFilter = filterByName(genreFilter, searchBar.value)
+    printTemplate(nameFilter, container, createCardTemplate)
+}
